@@ -1,0 +1,46 @@
+<html>
+    <body>
+        <!-- Target container -->
+    <div class="react-container" id="react-container"></div>
+    
+        <!-- React library & ReactDOM-->
+        <script src="https://unpkg.com/react@15.4.2/dist/react.js"></script>
+        <script src="https://unpkg.com/react-dom@15.4.2/dist/react-dom.js"></script>
+    
+        <script>
+            var cookingStepsData = [
+                "Preheat the oven to 350 degrees.",
+                "Spread the olive oil around a glass baking dish.",
+                "Add the salmon, garlic, and pine...",
+                "Bake for 15 minutes.",
+                "Add the yellow squash and put...",
+                "Remove from oven and let cool for 15 ...."
+            ];
+
+            // Pure React and JavaScript code
+            var heading = React.createElement("h1", null, "Backed Salmon");
+            var ingredients = React.createElement("ul", {'className':'ingredients'}, 
+                React.createElement("li", null, "1 lb Salmon"),
+                React.createElement("li", null, "1 cup Pine Nuts"),
+                React.createElement("li", null, "2 cups Butter Lettuce"),
+                React.createElement("li", null, "1 Yellow Squash"),
+                React.createElement("li", null, "1/2 cup Olive Oil"),
+                React.createElement("li", null, "3 cloves of Garlic")
+            );
+
+            var cookingSteps = React.createElement("section", null, cookingStepsData.map((step, index) => React.createElement("p", {key: index}, step)));
+
+            var cookingInstructions = React.createElement("section", {"className": "instructions"},
+                React.createElement("h2", null, "Cooking Instructions"),
+                cookingSteps
+            );
+
+            var dish = React.createElement("section", {id: "backed-salmon"}, heading, ingredients, cookingInstructions);
+
+            ReactDOM.render(dish, document.getElementById('react-container'));
+            console.log('dish', dish);
+            console.log('ingredients', ingredients);
+        </script>
+
+    </body>
+</html>
