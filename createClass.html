@@ -1,0 +1,51 @@
+<html>
+    <body>
+        <!-- Target container -->
+    <div class="react-container" id="react-container"></div>
+
+        <!-- React library & ReactDOM-->
+        <script src="https://unpkg.com/react@15.4.2/dist/react.js"></script>
+        <script src="https://unpkg.com/react-dom@15.4.2/dist/react-dom.js"></script>
+
+        <script>
+            // Pure React and JavaScript code
+
+            var steps = [
+                "Preheat the oven to 350 degrees.",
+                "Spread the olive oil around a glass baking dish.",
+                "Add the salmon, garlic, and pine...",
+                "Bake for 15 minutes.",
+                "Add the yellow squash and put...",
+                "Remove from oven and let cool for 15 ...."
+            ];
+
+            var steps1 = [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e"
+            ];
+
+
+            const stepsList = React.createClass(
+                {
+                    displayName: "CookingSteps",
+                    render: function() {
+                        return React.createElement(
+                            "ul", {
+                                className: "cookingSteps"
+                            },
+                            this.props.steps.map((step, index) => React.createElement("li", { key: index }, step))
+
+                        );
+                    }
+                }
+            );
+
+            var all = React.createElement('section', null, React.createElement(stepsList, {steps: steps}, null), React.createElement(stepsList, {steps: steps1}, null));
+            ReactDOM.render(all, document.getElementById('react-container'));
+        </script>
+
+    </body>
+</html>
