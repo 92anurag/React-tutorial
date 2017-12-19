@@ -5,7 +5,7 @@ export default class Instructions extends Component {
   render() {
     return (
       <section className="instructions">
-        <h1>{this.props.title}</h1>
+        <h2>Cooking Instructions</h2>
         {this.props.steps.map((step, index) => <p key={index}> {step} </p>)}
       </section>
     );

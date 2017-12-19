@@ -7,8 +7,9 @@ export default class Receipe extends Component {
     const {steps, name, ingredients} = this.props.receipe;
     return (
       <section>
-        <Instructions title={name} steps={steps}></Instructions>
+        <h1>{name}</h1>
         <IngredientList ingredients={ingredients}> </IngredientList>
+        <Instructions steps={steps}></Instructions>
       </section>
     )
   }
