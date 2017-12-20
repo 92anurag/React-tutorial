@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Ingredient from './Ingredient';
-// import './IngredientList.css'
+import './IngredientList.css'
 
 export default class IngredientList extends Component {
   render() {

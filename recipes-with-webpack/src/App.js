@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import appData from './store/data';
 // import logo from './logo.svg';
 import Receipe from './components/Recepie'
-// import './App.css';
+import './App.css';
 
 class App extends Component {
   render() {
