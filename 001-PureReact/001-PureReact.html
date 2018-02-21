@@ -27,7 +27,7 @@
      var dish = React.createElement("section", {id: "baked-salmon"},
         React.createElement("h1", null, "Baked Salmon"),
         React.createElement("ul", {"className": "ingredients"},
-            items.map((ingredient, i) => React.createElement('li', null, ingredient))
+            items.map((ingredient, i) => React.createElement('li', {key: i}, ingredient))
         ),
         React.createElement("section", {"className": "instructions"},
             React.createElement("h2", null, "Cooking Instructions"),
