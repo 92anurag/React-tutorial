@@ -18,10 +18,11 @@
      // Pure React and JavaScript code
      var IngredientsList = React.createClass({
        displayName: "IngredientsList",
+       renderList(ingredient, i) {
+         return React.createElement("li", { key: i }, ingredient)
+       },
        render() {
-         return React.createElement("ul", {className: "ingredients"},
-            this.props.items.map((ingredient, i) => React.createElement("li", {key: i}, ingredient))
-         )
+         return React.createElement("ul", {className: "ingredients"},this.props.items.map(this.renderList))
        }
      });
 
