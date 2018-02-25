@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Property Validation for Components created with createClass</title>
+</head>
+
+<body>
+
+    <!-- Target container -->
+    <div class="react-container" id="react-container"></div>
+
+    <!-- React library & ReactDOM-->
+    <script src="https://unpkg.com/react@15.4.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.4.2/dist/react-dom.js"></script>
+
+    <!--  babel core library to transpile code on the fly in the browser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.js"></script>
+
+    <script type="text/babel">
+        const Summary = ({ingredients, steps, title}) => {
+          return <div>
+              <h1>{title}</h1>
+              <p>{ingredients.length} Ingredients | {steps.length} Steps</p>
+            </div>
+        }
+
+        Summary.propTypes = {
+          ingredients: React.PropTypes.array,
+          steps: React.PropTypes.array,
+          title: (props, propName) =>
+            (typeof props[propName] !== 'string') ?
+              new Error('A title must be a string') :
+              (props[propName].length > 20) ?
+                new Error('title is over 20 characters') :
+                null
+        }
+
+        Summary.defaultProps = {
+          ingredients: [],
+          steps: [],
+          title: "[recipe]"
+        }
+
+        ReactDOM.render(<Summary title="Anurag" />, document.getElementById('react-container'));
+    </script>
+
+</body>
